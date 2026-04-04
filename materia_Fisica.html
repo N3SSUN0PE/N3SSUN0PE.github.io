@@ -5,38 +5,54 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-<nav style="width: 100%; background: var(--card); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; margin-bottom: 2rem;">
-    <div style="width: 100%; max-width: 800px; display: flex; justify-content: space-between; padding: 0 1rem;">
-        <span style="font-weight: bold; color: var(--accent);">N3SSUN0PE LAB</span>
-        <div>
-            <a href="index.html" style="margin-left: 1.5rem; font-size: 0.9rem;">Home</a>
-            <a href="archivio.html" style="margin-left: 1.5rem; font-size: 0.9rem;">Archivio Log</a>
-            <a href="biblioteca.html" style="margin-left: 1.5rem; font-size: 0.9rem; color: var(--accent);">Biblioteca</a>
-        </div>
-    </div>
-</nav>
-
-    <div class="container">
-        <a href="biblioteca.html" style="color: var(--text-dim); text-decoration: none; font-size: 1.0rem;">← Biblioteca</a>
-        
-        <div class="log-card" style="margin-top: 1.5rem; text-align: center;">
-            <h1 style="color: var(--accent); margin: 0;">Fisica</h1>
-        </div>
-        
-        <div class="log-card" style="margin-top: 2rem;">
-            <h3 style="color: var(--accent); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Appunti:</h3>
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <a href="assets/biblioteca/Fisica/appuntifisica1.pdf" target="_blank" style="display: block; background: rgba(255,255,255,0.03); border: 1px solid var(--accent); padding: 1rem; border-radius: 8px; text-align: center; font-weight: bold; color: var(--text);">📄 Appunti Fisica 1</a>
-                <a href="assets/biblioteca/Fisica/appuntifisica2.pdf" target="_blank" style="display: block; background: rgba(255,255,255,0.03); border: 1px solid var(--accent); padding: 1rem; border-radius: 8px; text-align: center; font-weight: bold; color: var(--text);">📄 Appunti Fisica 2</a>
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="nav-logo">N3SSUN0PE LAB</span>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="archivio.html">Archivio Log Giornalieri</a>
+                <a href="biblioteca.html" class="active">Biblioteca</a>
             </div>
         </div>
-        <div class="log-card" style="margin-top: 2rem;">
-            <h3 style="color: var(--accent); margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Risorse extra:</h3>
-            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                <li><a href="assets/biblioteca/Fisica/RaccoltaProveEsameProfFeoli.pdf" target="_blank" style="display: block; background: rgba(255,255,255,0.03); border: 1px solid var(--accent); padding: 1rem; border-radius: 8px; text-align: center; font-weight: bold; color: var(--text);">📄 PDF contenente alcune prove scritte vecchie</a></li>
-                <li><a href="assets/biblioteca/Fisica/EsercitazioniEsame.pdf" target="_blank" style="display: block; background: rgba(255,255,255,0.03); border: 1px solid var(--accent); padding: 1rem; border-radius: 8px; text-align: center; font-weight: bold; color: var(--text);">📄 PDF delle esercitazioni con spiegazione</a></li>
-            </ul>
+    </nav>
+
+    <div class="container">
+        <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1rem;">
+            <a href="biblioteca.html" style="color: var(--text-dim); font-size: 0.9rem; font-weight: normal;">← Biblioteca</a>
+            <h1 style="margin: 0; text-align: left;">Fisica</h1>
+        </div>
+        
+        <div class="log-card" style="display: block; text-align: left; padding: 2rem;">
+            
+            <h3 style="color: var(--accent); margin-top: 0;">📚 Appunti:</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.5rem;">Materiale didattico completo per i moduli di Fisica 1 e 2.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2.5rem;">
+                <a href="assets/biblioteca/Fisica/appuntifisica1.pdf" target="_blank" class="log-card" style="margin: 0; padding: 1rem; border-color: rgba(56, 189, 248, 0.2); background: rgba(255,255,255,0.02); justify-content: flex-start; font-size: 0.95rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    Appunti Fisica 1
+                </a>
+                <a href="assets/biblioteca/Fisica/appuntifisica2.pdf" target="_blank" class="log-card" style="margin: 0; padding: 1rem; border-color: rgba(56, 189, 248, 0.2); background: rgba(255,255,255,0.02); justify-content: flex-start; font-size: 0.95rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    Appunti Fisica 2
+                </a>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 2rem;">
+
+            <h3 style="color: var(--accent);">📝 Risorse Extra:</h3>
+            <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.5rem;">Archivio storico delle prove d'esame e guide alla risoluzione degli esercizi.</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <a href="assets/biblioteca/Fisica/RaccoltaProveEsameProfFeoli.pdf" target="_blank" class="log-card" style="margin: 0; padding: 1rem; border-color: rgba(56, 189, 248, 0.2); background: rgba(255,255,255,0.02); justify-content: flex-start; font-size: 0.95rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Prove Scritte Prof. Feoli (Raccolta)
+                </a>
+                <a href="assets/biblioteca/Fisica/EsercitazioniEsame.pdf" target="_blank" class="log-card" style="margin: 0; padding: 1rem; border-color: rgba(56, 189, 248, 0.2); background: rgba(255,255,255,0.02); justify-content: flex-start; font-size: 0.95rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    Esercitazioni con Spiegazione
+                </a>
+            </div>
         </div>
     </div>
 </body>

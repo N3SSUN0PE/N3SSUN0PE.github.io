@@ -6,27 +6,29 @@
     <meta name="google-site-verification" content="kBuluuPNDOZvU0NJDACWlnb50VMcXfLut7V9dXuhPXE" />
 </head>
 <body>
-    <nav style="width: 100%; background: var(--card); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; margin-bottom: 2rem;">
-    <div style="width: 100%; max-width: 800px; display: flex; justify-content: space-between; padding: 0 1rem;">
-        <span style="font-weight: bold; color: var(--accent);">N3SSUN0PE LAB</span>
-        <div>
-            <a href="index.html" style="margin-left: 1.5rem; font-size: 0.9rem;">Home</a>
-            <a href="archivio.html" style="margin-left: 1.5rem; font-size: 0.9rem;">Archivio Log Giornalieri</a>
-            <a href="biblioteca.html" style="margin-left: 1.5rem; font-size: 0.9rem; color: var(--accent);">Biblioteca</a>
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="nav-logo">N3SSUN0PE LAB</span>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="archivio.html">Archivio Log Giornalieri</a>
+                <a href="biblioteca.html">Biblioteca</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>N3SSUN0PE LAB</h1>
+        <div class="log-card" style="text-align: left;">
+            <p style="margin: 0;">Benvenuti nel mio laboratorio digitale. Dato che sto iniziando a sperimentare con Python e Java, ho pensato fosse una buona idea creare un sito in HTML per tenere traccia dell'evoluzione di quest'ultimo. Seguiranno tanti aggiornamenti.</p>
+        </div>
+        <div class="log-card" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+            <h3 style="color: var(--accent); margin: 0;">🔥 Ultimo Aggiornamento</h3>
+            <!-- LATEST_START -->
+            <p style="margin: 0.5rem 0; color: var(--text-dim);">Giorno 4: Aggiunta Corsi e Materiale alla Biblioteca</p>
+            <a href="giorno4.html" style="background: var(--accent); color: var(--bg); padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: bold; font-size: 0.9rem; margin-top: 0.5rem; transition: 0.3s;">Leggi l'ultimo log</a>
+            <!-- LATEST_END -->
         </div>
     </div>
-</nav>
-    <div class="container">
-    <h1>N3SSUN0PE LAB</h1>
-    <div class="log-card" style="text-align: center;">
-        <p>Benvenuti nel mio laboratorio digitale, dato che sto iniziando a sperimentare con python e java ho pensato fosse una buona idea creare un sito in html per tenere traccia dell'evoluzione di quest'ultimo, seguiranno tanti aggiornamenti bla bla bla avete capito.</p>
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 2rem 0;">
-        <h3 style="color: var(--accent);">🔥 Ultimo Aggiornamento</h3>
-        <!-- LATEST_START -->
-        <p>Giorno 4: Aggiunta Corsi e Materiale alla Biblioteca</p>
-        <a href="giorno4.html" class="btn" style="display: inline-block; background: var(--accent); color: var(--bg); padding: 0.8rem 1.5rem; border-radius: 8px; font-weight: bold; margin-top: 1rem;">Leggi l'ultimo log</a>
-        <!-- LATEST_END -->
-    </div>
-</div>
 </body>
 </html>

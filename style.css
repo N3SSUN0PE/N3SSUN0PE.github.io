@@ -15,7 +15,7 @@ body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 2rem;
+    padding: 100px 0 0 0; /* <-- MODIFICATO: Lascia lo spazio per la navbar fissa */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,6 +25,8 @@ body {
 main, .container {
     width: 100%;
     max-width: 800px;
+    padding: 0 2rem; /* SPOSTATO QUI: Margini solo per il contenuto */
+    box-sizing: border-box;
 }
 
 /* 4. TITOLI: Più grandi e con colore d'accento */
@@ -42,15 +44,24 @@ h2 {
     margin-top: 2rem;
 }
 
-/* 5. LE CARD: Ogni log di laboratorio sarà un blocco distinto */
+/* 5. LE CARD: Pulizia margini per evitare l'effetto "blocco unico" */
 .log-card {
     background-color: var(--card);
-    padding: 2rem;           /* Più respiro interno */
-    border-radius: 16px;     /* Smussatura più moderna */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 
-                0 10px 10px -5px rgba(0, 0, 0, 0.3); /* Ombra a due livelli */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 1rem;
+    padding: 1.2rem; 
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 1rem; /* Spazio vitale tra una card e l'altra */
+}
+
+.log-card:hover {
+    transform: translateY(-5px); /* Si solleva */
+    box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15); /* Bagliore Cyan */
+    border-color: var(--accent);
 }
 
 /* 6. LINK E IMMAGINI: Cura dei dettagli */
@@ -80,4 +91,124 @@ ul {
 li {
     margin-bottom: 0.5rem;
     color: var(--text-dim);
+}
+/* 7. COMPONENTI DINAMICI: Ricerca e Rubrica Alfabetica */
+
+/* --- Barra di Ricerca Animata --- */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: width 0.4s ease-in-out, border 0.4s;
+    width: 40px;
+    height: 40px;
+    border: 1px solid transparent;
+    background: rgba(255,255,255,0.01);
+}
+
+.search-wrapper.expanded {
+    width: 220px;
+    border: 1px solid var(--accent);
+    background: rgba(255,255,255,0.03);
+}
+
+.search-icon {
+    color: var(--accent);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.3s;
+    flex-shrink: 0;
+}
+
+.search-icon:hover {
+    color: #fff;
+}
+
+.search-input {
+    width: 100%;
+    border: none !important;
+    background: transparent !important;
+    color: var(--text);
+    font-size: 0.9rem;
+    outline: none;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.search-wrapper.expanded .search-input {
+    opacity: 1;
+    padding: 0.6rem 1rem 0.6rem 0.1rem;
+    pointer-events: auto;
+}
+
+/* --- Rubrica Laterale Fluttuante --- */
+.alfabeto-sidebar {
+    position: fixed;
+    right: 0; /* Incollata al bordo destro */
+    top: 85px;   /* Parte dal tetto */
+    bottom: 0; /* Arriva al pavimento */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /* Spazia le lettere in modo perfetto e automatico */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 10px 8px; /* Leggermente più larga per comodità di click */
+    border-left: 1px solid rgba(255,255,255,0.05); /* Bordo solo sul lato interno */
+    z-index: 90;
+}
+
+.alfabeto-sidebar span {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    margin: 1px 0;
+    transition: all 0.2s;
+}
+
+.alfabeto-sidebar span:hover {
+    color: var(--accent);
+    transform: scale(1.5);
+}
+
+@media (max-width: 768px) {
+    .alfabeto-sidebar { display: none; }
+}
+
+/* --- GRIGLIA MATERIE (Ritorno a Rubrica) --- */
+/* --- ASSETTO RUBRICA (Verticale) --- */
+.grid-materie {
+    display: flex;
+    flex-direction: column; /* Incolonna tutto */
+    gap: 0.8rem;            /* Spazio stretto tra le righe della rubrica */
+    width: 100%;
+    max-width: 600px;       /* Evita che i bottoni diventino troppo lunghi su PC */
+    margin: 0 auto;
+}
+
+/* Assicurati che le log-card abbiano un margine inferiore se non sono in una griglia */
+.log-card {
+    margin-bottom: 1.5rem; 
+    /* ... il resto del tuo codice ... */
+}
+
+/* --- 8. NAVBAR DINAMICA --- */
+.navbar {
+    width: 100%;
+    background: var(--card);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: fixed; /* <-- LA MAGIA È QUI: Incollata al tetto per sempre */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
 }

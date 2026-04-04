@@ -5,30 +5,147 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav style="width: 100%; background: var(--card); padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; margin-bottom: 2rem;">
-        <div style="width: 100%; max-width: 800px; display: flex; justify-content: space-between; padding: 0 1rem;">
-            <span style="font-weight: bold; color: var(--accent);">N3SSUN0PE LAB</span>
-            <div>
-                <a href="index.html" style="margin-left: 1.5rem; font-size: 0.9rem;">Home</a>
-                <a href="archivio.html" style="margin-left: 1.5rem; font-size: 0.9rem;">Archivio Log Giornalieri</a>
-                <a href="biblioteca.html" style="margin-left: 1.5rem; font-size: 0.9rem; color: var(--accent);">Biblioteca</a>
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="nav-logo">N3SSUN0PE LAB</span>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="archivio.html">Archivio Log Giornalieri</a>
+                <a href="biblioteca.html" class="active">Biblioteca</a>
             </div>
         </div>
     </nav>
-
+    
     <div class="container">
         <h1>Biblioteca Universitaria</h1>
         <p style="color: var(--text-dim); text-align: center; margin-bottom: 2rem;">Biblioteca sacra nella quale ho inserito tutto il materiale a mia disposizione</p>
-        <!-- INJECT_BIBLIOTECA_START -->
-<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: 0 auto;">
-<a href="materia_Fisica.html" class="log-card" style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--accent); transition: transform 0.2s; text-decoration: none; display: block; border: 1px solid rgba(255,255,255,0.05);">📚 Fisica</a>
-<a href="materia_analisi.html" class="log-card" style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--accent); transition: transform 0.2s; text-decoration: none; display: block; border: 1px solid rgba(255,255,255,0.05);">📚 Analisi</a>
-<a href="materia_calcolatori_elettronici.html" class="log-card" style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--accent); transition: transform 0.2s; text-decoration: none; display: block; border: 1px solid rgba(255,255,255,0.05);">📚 Calcolatori Elettronici</a>
-<a href="materia_elettronica.html" class="log-card" style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--accent); transition: transform 0.2s; text-decoration: none; display: block; border: 1px solid rgba(255,255,255,0.05);">📚 Elettronica</a>
-<a href="materia_fondamenti_di_telecomunicazioni.html" class="log-card" style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--accent); transition: transform 0.2s; text-decoration: none; display: block; border: 1px solid rgba(255,255,255,0.05);">📚 Fondamenti Di Telecomunicazioni</a>
-<a href="materia_sistemi_operativi.html" class="log-card" style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--accent); transition: transform 0.2s; text-decoration: none; display: block; border: 1px solid rgba(255,255,255,0.05);">📚 Sistemi Operativi</a>
-</div>
-        <!-- INJECT_BIBLIOTECA_END -->
+        
+        <div style="max-width: 500px; margin: 0 auto 1rem auto; display: flex; justify-content: flex-end;">
+            <div id="containerRicerca" class="search-wrapper">
+                
+                <svg id="iconaLente" onclick="toggleRicerca()" class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+
+                <input type="text" id="barraRicerca" onkeyup="filtraMaterie()" placeholder="Cerca corso..." class="search-input">
+            </div>
         </div>
+        <!-- INJECT_BIBLIOTECA_START -->
+        <div class="grid-materie">
+            <a href="materia_analisi.html" class="log-card">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                Analisi
+            </a>
+            <a href="materia_calcolatori_elettronici.html" class="log-card">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                Calcolatori Elettronici
+            </a>
+            <a href="materia_elettronica.html" class="log-card">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                Elettronica
+            </a>
+            <a href="materia_Fisica.html" class="log-card">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                Fisica
+            </a>
+            <a href="materia_fondamenti_di_telecomunicazioni.html" class="log-card">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                Telecomunicazioni
+            </a>
+            <a href="materia_sistemi_operativi.html" class="log-card">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                Sistemi Operativi
+            </a>
+        </div>
+        <!-- INJECT_BIBLIOTECA_END -->
+    </div>
+
+    <div id="rubricaAlfabetica" class="alfabeto-sidebar"></div>
+
+    <script>
+        const searchWrapper = document.getElementById('containerRicerca');
+        const searchInput = document.getElementById('barraRicerca');
+        const rubrica = document.getElementById('rubricaAlfabetica');
+
+        // --- 1. GENERAZIONE RUBRICA ALFABETICA ---
+        const lettere = ['#', 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+        lettere.forEach(l => {
+            let span = document.createElement('span');
+            span.innerText = l;
+            span.onclick = () => vaiALettera(l);
+            rubrica.appendChild(span);
+        });
+
+        // --- 2. LOGICA DI SCORRIMENTO RUBRICA (Navigazione pura) ---
+        function vaiALettera(lettera) {
+            // Se clicchi il cancelletto, torna in cima alla pagina
+            if (lettera === '#') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            let bottoni = document.querySelectorAll('.log-card');
+            for (let bottone of bottoni) {
+                let testo = bottone.textContent || bottone.innerText;
+                // Pulisce l'emoji per leggere la prima lettera vera
+                let testoPulito = testo.replace(/[^a-zA-Z]/g, '').trim().toUpperCase(); 
+                
+                if (testoPulito.startsWith(lettera)) {
+                    // Trovato! Scorri morbidamente fino a questo bottone centrandolo nello schermo
+                    bottone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Piccolo flash tattico (ingrandimento e bordo cyan) per evidenziare il bersaglio
+                    bottone.style.borderColor = 'var(--accent)';
+                    bottone.style.transform = 'scale(1.05)';
+                    
+                    // Rimuove l'effetto dopo 800 millisecondi
+                    setTimeout(() => {
+                        bottone.style.borderColor = 'rgba(255,255,255,0.05)';
+                        bottone.style.transform = '';
+                    }, 800);
+                    
+                    break; // Si ferma al primo che trova, ignorando i successivi con la stessa lettera
+                }
+            }
+        }
+
+        // --- 3. LOGICA BARRA DI RICERCA (Questa rimane un filtro puro) ---
+        function toggleRicerca() {
+            searchWrapper.classList.toggle('expanded');
+            if (searchWrapper.classList.contains('expanded')) {
+                searchInput.focus();
+            } else {
+                pulisciRicerca();
+            }
+        }
+
+        function pulisciRicerca() {
+            searchInput.value = ''; 
+            filtraMaterie(); // Rimostra tutto
+        }
+
+        function filtraMaterie() {
+            let inputLower = searchInput.value.toLowerCase();
+            let bottoni = document.querySelectorAll('.log-card');
+
+            bottoni.forEach(bottone => {
+                let testo = bottone.textContent || bottone.innerText;
+                if (testo.toLowerCase().indexOf(inputLower) > -1) {
+                    bottone.style.display = "block";
+                } else {
+                    bottone.style.display = "none";
+                }
+            });
+        }
+
+        // --- 4. RADAR AUTO-CHIUSURA ---
+        document.addEventListener('click', function(event) {
+            if (searchWrapper.classList.contains('expanded') && !searchWrapper.contains(event.target)) {
+                searchWrapper.classList.remove('expanded');
+                pulisciRicerca();
+            }
+        });
+    </script>
 </body>
 </html>
